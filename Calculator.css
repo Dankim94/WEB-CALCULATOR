@@ -1,0 +1,122 @@
+/* Responsive, accessible calculator layout */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	display: grid;
+	place-items: center;
+	padding: 1.5rem;
+	background: #eef2f7;
+	color: #18212f;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.calculator {
+	width: min(100%, 360px);
+	padding: 1.25rem;
+	border: 1px solid #e2e8f0;
+	border-radius: 1.25rem;
+	background: #fff;
+	box-shadow: 0 18px 45px rgb(15 23 42 / 12%);
+}
+
+.display {
+	width: 100%;
+	min-height: 5rem;
+	margin: 0 0 1rem;
+	padding: 1rem;
+	border: 0;
+	border-radius: 0.75rem;
+	background: #f5f7fb;
+	color: inherit;
+	font: inherit;
+	font-size: clamp(1.5rem, 8vw, 2rem);
+	text-align: right;
+}
+
+.buttons,
+.button-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 0.625rem;
+}
+
+.buttons button,
+.button-grid button,
+.button {
+	min-width: 0;
+	min-height: 3.5rem;
+	border: 0;
+	border-radius: 0.75rem;
+	background: #f0f3f8;
+	color: #263244;
+	cursor: pointer;
+	font: inherit;
+	font-size: 1.1rem;
+	font-weight: 600;
+	transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.buttons button:hover,
+.button-grid button:hover,
+.button:hover {
+	background: #e2e8f0;
+}
+
+.buttons button:active,
+.button-grid button:active,
+.button:active {
+	transform: scale(0.97);
+}
+
+.buttons button:focus-visible,
+.button-grid button:focus-visible,
+.button:focus-visible,
+.display:focus-visible {
+	outline: 3px solid #93c5fd;
+	outline-offset: 2px;
+}
+
+.operator {
+	background: #e7efff !important;
+	color: #2458b8 !important;
+}
+
+.clear {
+	background: #fee8e7 !important;
+	color: #b42318 !important;
+}
+
+.equals {
+	background: #2563eb !important;
+	color: #fff !important;
+}
+
+.equals:hover {
+	background: #1d4ed8 !important;
+}
+
+.zero {
+	grid-column: span 2;
+}
+
+@media (max-width: 400px) {
+	body {
+		padding: 1rem;
+	}
+
+	.calculator {
+		padding: 1rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition-duration: 0.01ms !important;
+	}
+}
